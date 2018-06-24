@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {{ form.csrf_token }}
+
+    {{ form.author_name.label }}
+    {{ form.author_name }}
+<br>
+    {{ form.book_name.label }}
+    {{ form.book_name }}
+<br>
+    {{ form.submit }}
+
+
+<br>
+<br>
+<hr>
+<ul>
+    {% for author in author_list %}
+        <li>作者：{{ author.name }}<a href="/delete_author/{{ author.id }}">删除</a></li>
+        <ul>
+            {% for book in author.book %}
+            <li>书名：{{ book.name }}<a href="/delete_book/{{ book.id }}">删除</a></li>
+            {% endfor %}
+
+        </ul>
+
+    {% endfor %}
+
+</ul>
+
+</form>
+</body>
+</html>

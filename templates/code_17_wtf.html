@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<form method="post">
+    {{ form.csrf_token }}
+{#    {{ csrf_token() }}　wtf表单中语法格式，作用就是防止被攻击，加密#}
+
+    {{ form.user_name.label }}
+    <p>{{ form.user_name }}</p>
+
+    {% for msg in form.user_name.errors %}  {# 将所有的错误收集，并显示，提示用户 #}
+        <p>{{ msg }}</p>
+    {% endfor %}
+
+    {{ form.pass_word.label }}
+    <p>{{ form.pass_word }}</p>
+    {% for msg in form.pass_word.errors %}
+        <p>{{ msg }}</p>
+    {% endfor %}
+
+    {{ form.pass_word2.label }}
+    <p>{{ form.pass_word2 }}</p>
+    {% for msg in form.pass_word2.errors %}
+        <p>{{ msg }}</p>
+    {% endfor %}
+    <br>
+
+    {{ form.submit }}
+
+
+
+</form>
+
+</body>
+</html>

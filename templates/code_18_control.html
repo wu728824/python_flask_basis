@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>内置变量config的用法：{{ config.DEBUG }}</h1>
+<h1>内置变量request的用法：{{ request.url }}</h1>
+<h1>内置变量g的用法（在试图函数那边需要导入g模块的包）:{{ g.name }}</h1>
+{% for item in my_list %}
+    {% if loop.index == 1 %}
+        <li style="background: green">{{ item.value }}</li>
+    {% elif loop.index == 2 %}
+        <li style="background: gold">{{ item.value }}</li>
+    {% elif loop.index == 3 %}
+        <li style="background: orange">{{ item.value }}</li>
+    {% elif loop.index == 4 %}
+        <li style="background: pink">{{ item.value }}</li>
+     {% elif loop.index == 5 %}
+        <li style="background: red">{{ item.value }}</li>
+    {% endif %}
+
+{% endfor %}
+
+
+</body>
+</html>
